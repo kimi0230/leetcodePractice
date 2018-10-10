@@ -24,6 +24,8 @@ class Solution(object):
 
     def twoSum2(self, nums, target):
         for i in range(0, len(nums)):
+
+            # 想要的值減去現在的值，然後找之後的array是否有該數字
             if (target - nums[i]) in nums[i+1:]:
                 return [i, nums.index(target - nums[i], i+1, len(nums))]
 
