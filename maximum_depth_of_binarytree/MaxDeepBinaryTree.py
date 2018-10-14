@@ -18,6 +18,8 @@
 # 找出一個二元樹的深度
 
 # Definition for a binary tree node.
+
+
 class TreeNode(object):
     def __init__(self, data):
         self.val = data
@@ -49,7 +51,7 @@ class TreeNode(object):
             self.left.preOrder()
         if self.right:
             self.right.preOrder()
-    
+
     # 中序走訪
     def inOrder(self):
         if self == None:
@@ -62,13 +64,14 @@ class TreeNode(object):
 
     # 後序走訪
     def postOrder(self):
-        if self==None:
+        if self == None:
             return
         if self.left:
             self.left.postOrder()
         if self.right:
             self.right.postOrder()
         print(self.val)
+
 
 class Solution(object):
     # 節點如果left或right有值，則depth+1，並判斷left或right有沒有子節點 到最底層
@@ -79,7 +82,7 @@ class Solution(object):
         """
         if(root == None):
             return 0
- 
+
         l_depth = 1
         r_depth = 1
 
@@ -95,6 +98,7 @@ class Solution(object):
         # return root and 1 + max(map(self.maxDepth, (root.left, root.right))) or 0
         return 1 + max(map(self.maxDepth_one_line, (root.left, root.right))) if root else 0
 
+
 if __name__ == '__main__':
     sol = Solution()
     # [3, 9, 20, null, null, 15, 7]
@@ -103,8 +107,8 @@ if __name__ == '__main__':
     #       9
     #      /  \
     #     7    20
-    #          / 
-    #        15 
+    #          /
+    #        15
     test_object = TreeNode(3)
     test_object.insert(9)
     test_object.insert(20)
@@ -120,4 +124,3 @@ if __name__ == '__main__':
 # def square(x):
 #     return x ** 2
 # map(square, [1, 2, 3, 4, 5])   # 結果 [1, 4, 9, 16, 25]
-
